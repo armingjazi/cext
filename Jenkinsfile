@@ -45,7 +45,10 @@ pipeline {
 
             dir("build_release") {
               echo 'Building Release'
-              sh 'make'
+              sh '''
+                  cmake -D CMAKE_BUILD_TYPE=Release -D -D CMAKE_INSTALL_PREFIX:PATH=local ..
+                  make
+              '''
             }
           }
 
@@ -64,12 +67,8 @@ pipeline {
 
         stage('Package') {
           steps {
-            sh '''
-              cd build &&
-                cmake -D CMAKE_BUILD_TYPE=Release -D -D CMAKE_INSTALL_PREFIX:PATH=$PWD/../local ..
-                make
-                make install
-                '''
+
+            dir("build_release") {
                 archiveArtifacts artifacts: 'local/**', fingerprint: true, onlyIfSuccessful: true
           }
         }
