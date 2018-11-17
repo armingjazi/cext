@@ -35,12 +35,14 @@ pipeline {
         }
 
         stage('Linux Test') {
-          dir("build_release") {
-            echo 'Testing Release'
-            sh 'cd test && ./runAllTest'
+          steps {
+
+              dir("build_release") {
+                echo 'Testing Release'
+                sh 'cd test && ./runAllTest'
+              }
           }
         }
-
 
       }
     }
