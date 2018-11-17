@@ -46,7 +46,7 @@ pipeline {
             dir("build_release") {
               echo 'Building Release'
               sh '''
-                  cmake -D CMAKE_BUILD_TYPE=Release -D -D CMAKE_INSTALL_PREFIX:PATH=local ..
+                  cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX:PATH=local ..
                   make
               '''
             }
@@ -72,7 +72,7 @@ pipeline {
             }
           }
         }
-        
+
       }
     }
   }
