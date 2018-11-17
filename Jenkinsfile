@@ -15,7 +15,24 @@ pipeline {
 
     stage('Build') {
 
-      parallel {
+      stages {
+
+        stage('Configure Linux') {
+
+          steps {
+
+            dir("build_debug") {
+              echo 'Configuring Debug'
+              sh 'cmake -D CMAKE_BUILD_TYPE=Debug ../'
+            }
+
+            dir("build_release") {
+              echo 'Configuring Release'
+              sh 'cmake CMAKE_BUILD_TYPE=Release ../'
+            }
+          }
+
+        }
 
         stage('Build Linux') {
 
@@ -23,12 +40,12 @@ pipeline {
 
             dir("build_debug") {
               echo 'Building Debug'
-              sh 'cmake -D CMAKE_BUILD_TYPE=Debug ../'
+              sh 'make'
             }
 
             dir("build_release") {
               echo 'Building Release'
-              sh 'cmake CMAKE_BUILD_TYPE=Release ../'
+              sh 'make'
             }
           }
 
