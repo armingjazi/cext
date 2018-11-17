@@ -62,6 +62,18 @@ pipeline {
           }
         }
 
+        stage('Package') {
+          steps {
+            sh '''
+              cd build &&
+                cmake -D CMAKE_BUILD_TYPE=Release -D -D CMAKE_INSTALL_PREFIX:PATH=$PWD/../local ..
+                make
+                make install
+                '''
+                archiveArtifacts artifacts: 'local/**', fingerprint: true, onlyIfSuccessful: true
+          }
+        }
+
       }
     }
   }
