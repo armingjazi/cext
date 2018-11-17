@@ -67,12 +67,12 @@ pipeline {
 
         stage('Package') {
           steps {
-
             dir("build_release") {
-                archiveArtifacts artifacts: 'local/**', fingerprint: true, onlyIfSuccessful: true
+              archiveArtifacts artifacts: 'local/**', fingerprint: true, onlyIfSuccessful: true
+            }
           }
         }
-
+        
       }
     }
   }
