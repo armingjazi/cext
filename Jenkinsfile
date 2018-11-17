@@ -57,7 +57,7 @@ pipeline {
               dir("build_release") {
                 echo 'Testing Release'
                 sh 'cd test && ./runALLTests --gtest_filter=UnitTest* --path=./test --gtest_output=xml:reports/'
-                junit 'reports/*.xml'
+                junit 'test/reports/*.xml'
               }
           }
         }
