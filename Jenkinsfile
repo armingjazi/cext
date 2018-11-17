@@ -32,6 +32,13 @@ pipeline {
             }
           }
 
+          stage('Test') {
+            dir("build_release") {
+              echo 'Testing Release'
+              sh 'cd test && ./runAllTest'
+            }
+          }
+
         }
       }
     }
