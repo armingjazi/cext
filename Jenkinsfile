@@ -46,7 +46,7 @@ pipeline {
             dir("build_release") {
               echo 'Building Release'
               sh '''
-                  cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX:PATH=bin ..
+                  cmake -D CMAKE_BUILD_TYPE=Release ..
                   make
               '''
             }
@@ -62,14 +62,6 @@ pipeline {
                 sh 'cd test && ./runALLTests --gtest_filter=UnitTest* --path=./test --gtest_output=xml:reports/'
                 junit 'test/reports/*.xml'
               }
-          }
-        }
-
-        stage('Package') {
-          steps {
-            dir("build_release") {
-              archiveArtifacts artifacts: 'bin/**', fingerprint: true, onlyIfSuccessful: true
-            }
           }
         }
 
