@@ -23,12 +23,12 @@ pipeline {
 
             dir("build_debug") {
               echo 'Building Debug'
-              sh '../cmake -D CMAKE_BUILD_TYPE=Debug .'
+              sh 'cmake -D CMAKE_BUILD_TYPE=Debug ../'
             }
 
             dir("build_release") {
               echo 'Building Release'
-              sh '../cmake CMAKE_BUILD_TYPE=Release .'
+              sh 'cmake CMAKE_BUILD_TYPE=Release ../'
             }
           }
 
