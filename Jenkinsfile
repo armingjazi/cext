@@ -37,8 +37,9 @@ pipeline {
               sh '../cmake .'
             }
           }
-          
+
         }
       }
     }
   }
+}
