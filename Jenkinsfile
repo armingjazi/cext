@@ -63,7 +63,7 @@ pipeline {
 
         post {
           always {
-            junit 'build_release/test/reports/*.xml'
+            junit 'build_release/test/reports/runALLTests.xml'
           }
         }
 
