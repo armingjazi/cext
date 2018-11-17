@@ -19,22 +19,16 @@ pipeline {
 
         stage('Build Linux') {
 
-          agent {
-            node {
-              label 'Linux'
-            }
-          }
-
           steps {
 
             dir("build_debug") {
               echo 'Building Debug'
-              sh '../cmake .'
+              sh '../cmake -D CMAKE_BUILD_TYPE=Debug .'
             }
 
             dir("build_release") {
               echo 'Building Release'
-              sh '../cmake .'
+              sh '../cmake CMAKE_BUILD_TYPE=Release .'
             }
           }
 
