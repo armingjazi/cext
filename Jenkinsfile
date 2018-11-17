@@ -56,7 +56,7 @@ pipeline {
 
               dir("build_release") {
                 echo 'Testing Release'
-                sh 'cd test && ./runALLTest'
+                sh 'cd test && ./runALLTests'
               }
           }
         }
