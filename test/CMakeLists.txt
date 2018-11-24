@@ -2,7 +2,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
 
-add_executable(runALLTests LibraryTestCase.cpp)
+add_executable(runALLTests LibraryTestCase.cpp EventTestCase.cpp)
 
 target_link_libraries(runALLTests gtest gmock gtest_main)
 target_link_libraries(runALLTests ALLCore)

@@ -1,7 +1,7 @@
 
 set(ALLCore_SRCS
         source/Library.cpp include/Library.h
-        interface/ILibrary.h)
+        interface/ILibrary.h include/Event.h)
 
 add_library(ALLCore ${ALLCore_SRCS})
 

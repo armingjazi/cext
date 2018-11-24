@@ -2,9 +2,8 @@
 
 namespace ALL
 {
-    class ILibrary
+    struct ILibrary
     {
-    public:
         virtual void set(int variable) noexcept = 0;
 
         virtual int get() const noexcept = 0;
