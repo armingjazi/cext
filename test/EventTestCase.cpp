@@ -19,8 +19,7 @@ namespace ALLTesting
         {
         public:
             EventOwner()
-            :
-            onEvent(raise_.create())
+            : onEvent(raise_.create())
             {
             };
 
@@ -33,7 +32,7 @@ namespace ALLTesting
             Raise<EventArg> raise_;
 
         public:
-            Event<EventArg>& onEvent;
+            IEvent<EventArg>& onEvent;
 
             EventArg arg_;
         };
@@ -96,7 +95,7 @@ namespace ALLTesting
         EXPECT_FALSE(raised);
     }
 
-    TEST_F(UnitTest_Event, onEvent_callable)
+    TEST_F(UnitTest_Event, onEvent_callable_delete_sharedPtr)
     {
         bool raised = false;
 
@@ -118,8 +117,10 @@ namespace ALLTesting
 
         eventOwner.onEvent += func;
 
+        func = nullptr;
+
         eventOwner.raise();
 
-        EXPECT_TRUE(raised);
+        EXPECT_FALSE(raised);
     }
 }

@@ -5,8 +5,17 @@
 
 namespace ALL
 {
+
     template<typename T>
     class Event;
+
+    template<typename T>
+    struct IEvent
+    {
+        using callback = const std::function<void(T)>;
+
+        virtual void operator+=(std::shared_ptr<callback> func) = 0;
+    };
 
     template<typename T>
     class Raise
@@ -19,7 +28,7 @@ namespace ALL
             return t_(arg);
         };
 
-        Event<T>& create()
+        IEvent<T>& create()
         {
             return t_;
         }
@@ -29,14 +38,14 @@ namespace ALL
     };
 
     template<typename T>
-    class Event
+    class Event : public IEvent<T>
     {
     public:
         using callback = const std::function<void(T)>;
 
         Event & operator=(const Event&) = delete;
 
-        void operator+=(std::shared_ptr<callback> func)
+        void operator+=(std::shared_ptr<callback> func) override
         {
             listeners_.push_back(func);
         }
