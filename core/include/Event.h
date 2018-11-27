@@ -14,7 +14,9 @@ namespace ALL
     {
         using callback = const std::function<void(T)>;
 
-        virtual void operator+=(std::shared_ptr<callback> func) = 0;
+        using callbackPtr = std::weak_ptr<callback>;
+
+        virtual void operator+=(callbackPtr func) = 0;
     };
 
     template<typename T>
@@ -41,13 +43,12 @@ namespace ALL
     class Event : public IEvent<T>
     {
     public:
-        using callback = const std::function<void(T)>;
 
         Event & operator=(const Event&) = delete;
 
-        void operator+=(std::shared_ptr<callback> func) override
+        void operator+=(typename IEvent<T>::callbackPtr func) override
         {
-            listeners_.push_back(func);
+            listeners_.emplace_back(func);
         }
 
     private:
@@ -73,6 +74,6 @@ namespace ALL
             }
         }
 
-        std::vector<std::weak_ptr<callback>> listeners_;
+        std::vector<typename IEvent<T>::callbackPtr> listeners_;
     };
 }

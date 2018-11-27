@@ -123,4 +123,16 @@ namespace ALLTesting
 
         EXPECT_FALSE(raised);
     }
+
+    TEST_F(UnitTest_Event, onEvent_add_destroyed_function)
+    {
+        int callCounter = 0;
+        auto&& func = [&callCounter](EventArg) { ++callCounter;};
+
+        eventOwner.onEvent += std::make_shared<Event<EventArg>::callback >(func);
+
+        eventOwner.raise();
+
+        EXPECT_EQ(0, callCounter);
+    }
 }
