@@ -5,66 +5,65 @@
 
 namespace ALL
 {
-
-    template<typename T>
+    template<typename ...Arg>
     class Event;
 
-    template<typename T>
+    template<typename ...Arg>
     struct IEvent
     {
-        using callback = const std::function<void(T)>;
+        using callback = const std::function<void(Arg...)>;
 
         using callbackPtr = std::weak_ptr<callback>;
 
         virtual void operator+=(callbackPtr func) = 0;
     };
 
-    template<typename T>
+    template<typename ...Arg>
     class Raise
     {
     public:
         Raise() = default;
 
-        void operator()(T arg)
+        void operator()(Arg... args)
         {
-            return t_(arg);
+            return t_(args...);
         };
 
-        IEvent<T>& create()
+        IEvent<Arg...>& create()
         {
             return t_;
         }
 
     private:
-        Event<T> t_;
+        Event<Arg...> t_;
     };
 
-    template<typename T>
-    class Event : public IEvent<T>
+    template<typename ...Arg>
+    class Event : public IEvent<Arg...>
     {
     public:
 
         Event & operator=(const Event&) = delete;
 
-        void operator+=(typename IEvent<T>::callbackPtr func) override
+        void operator+=(typename IEvent<Arg...>::callbackPtr func) override
         {
             listeners_.emplace_back(func);
         }
 
     private:
-        friend class Raise<T>;
+        friend class Raise<Arg...>;
 
         Event() = default;
 
         Event(const Event&) = default;
 
-        void operator()(T arg)
+        void operator()(Arg... args)
         {
             for(auto it = listeners_.begin(); it != listeners_.end();)
             {
                 if (auto shared = it->lock())
                 {
-                    (*shared)(arg);
+                    (*shared)(args...);
                     ++it;
                 }
                 else
@@ -74,6 +73,6 @@ namespace ALL
             }
         }
 
-        std::vector<typename IEvent<T>::callbackPtr> listeners_;
+        std::vector<typename IEvent<Arg...>::callbackPtr> listeners_;
     };
 }

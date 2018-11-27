@@ -10,16 +10,17 @@ namespace ALLTesting
 {
     namespace
     {
-        class EventArg
-        {
+        class EventArg {};
 
-        };
+        class EventArg2 {};
 
         class EventOwner
         {
         public:
             EventOwner()
-            : onEvent(raise_.create())
+            :
+            onEvent(raise_.create()),
+            onEventMultiArg(raiseMultiArg_.create())
             {
             };
 
@@ -28,13 +29,21 @@ namespace ALLTesting
                 raise_(arg_);
             }
 
+            void raiseMultiArg()
+            {
+                raiseMultiArg_(arg_, arg2_);
+            }
+
         private:
             Raise<EventArg> raise_;
+            Raise<EventArg, EventArg2> raiseMultiArg_;
 
         public:
             IEvent<EventArg>& onEvent;
+            IEvent<EventArg, EventArg2>& onEventMultiArg;
 
             EventArg arg_;
+            EventArg2 arg2_;
         };
     }
 
@@ -58,11 +67,23 @@ namespace ALLTesting
     TEST_F(UnitTest_Event, onEvent_add)
     {
         bool raised = false;
-        auto func = std::make_shared<Event<EventArg>::callback >([&raised](EventArg) { raised = true;});
+        auto func = std::make_shared<Event<EventArg>::callback >([&raised](EventArg) { raised = true; });
 
         eventOwner.onEvent += func;
 
         eventOwner.raise();
+
+        EXPECT_TRUE(raised);
+    }
+
+    TEST_F(UnitTest_Event, onEvent_add_multiArgument)
+    {
+        bool raised = false;
+        auto func = std::make_shared<Event<EventArg, EventArg2>::callback >([&raised](EventArg, EventArg2) { raised = true; });
+
+        eventOwner.onEventMultiArg += func;
+
+        eventOwner.raiseMultiArg();
 
         EXPECT_TRUE(raised);
     }
@@ -124,7 +145,7 @@ namespace ALLTesting
         EXPECT_FALSE(raised);
     }
 
-    TEST_F(UnitTest_Event, onEvent_add_destroyed_function)
+    TEST_F(UnitTest_Event, onEvent_add_temp_function)
     {
         int callCounter = 0;
         auto&& func = [&callCounter](EventArg) { ++callCounter;};
