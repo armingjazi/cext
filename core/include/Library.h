@@ -4,6 +4,9 @@
 
 namespace ALL
 {
+    /*
+     * NOTE: not for use, this is only to ensure code style
+     */
     class Library : public ILibrary
     {
     public:

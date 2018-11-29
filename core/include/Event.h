@@ -3,41 +3,11 @@
 #include <functional>
 #include <set>
 
+#include <IEvent.h>
+#include <Raise.h>
+
 namespace ALL
 {
-    template<typename ...Arg>
-    class Event;
-
-    template<typename ...Arg>
-    struct IEvent
-    {
-        using callback = const std::function<void(Arg...)>;
-
-        using callbackPtr = std::weak_ptr<callback>;
-
-        virtual void operator+=(callbackPtr func) = 0;
-    };
-
-    template<typename ...Arg>
-    class Raise
-    {
-    public:
-        Raise() = default;
-
-        void operator()(Arg... args)
-        {
-            return t_(args...);
-        };
-
-        IEvent<Arg...>& create()
-        {
-            return t_;
-        }
-
-    private:
-        Event<Arg...> t_;
-    };
-
     template<typename ...Arg>
     class Event : public IEvent<Arg...>
     {
