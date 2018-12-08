@@ -10,7 +10,7 @@ namespace ALL
     {
         using callback = const std::function<void(Arg...)>;
 
-        using callbackPtr = std::weak_ptr<callback>;
+        using callbackPtr = const std::shared_ptr<callback>&;
 
         virtual void operator+=(callbackPtr func) = 0;
     };

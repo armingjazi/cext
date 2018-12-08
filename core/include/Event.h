@@ -43,6 +43,6 @@ namespace ALL
             }
         }
 
-        std::vector<typename IEvent<Arg...>::callbackPtr> listeners_;
+        std::vector<std::weak_ptr<typename IEvent<Arg...>::callback> > listeners_;
     };
 }
