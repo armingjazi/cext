@@ -1,4 +1,4 @@
-# AdaptiveLearningLibrary
+# Adaptive Learning Library
 *What started out as an attempt to write my own machine learning library, now turned into a playground for me to implement impossible stuff in C++, maybe somewhere along the way I go back to the original idea.*
 
 ## Event system 
