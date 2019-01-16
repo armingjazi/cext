@@ -17,7 +17,7 @@ static void aligned_array_benchmark(benchmark::State& state)
     }
 }
 
-BENCHMARK(aligned_array_benchmark)->RangeMultiplier(2)->Range(8, 8<<10)->Unit(benchmark::kMillisecond);
+BENCHMARK(aligned_array_benchmark)->RangeMultiplier(2)->Range(8, 8<<10)->Unit(benchmark::kMicrosecond);
 
 static void aligned_c_array_benchmark(benchmark::State& state)
 {
@@ -31,7 +31,7 @@ static void aligned_c_array_benchmark(benchmark::State& state)
     }
 }
 
-BENCHMARK(aligned_c_array_benchmark)->RangeMultiplier(2)->Range(8, 8<<10)->Unit(benchmark::kMillisecond);
+BENCHMARK(aligned_c_array_benchmark)->RangeMultiplier(2)->Range(8, 8<<10)->Unit(benchmark::kMicrosecond);
 
 
 static void array_benchmark(benchmark::State& state)
@@ -54,4 +54,4 @@ static void array_benchmark(benchmark::State& state)
     delete[] array;
 }
 
-BENCHMARK(array_benchmark)->RangeMultiplier(2)->Range(8, 8<<10)->Unit(benchmark::kMillisecond);
+BENCHMARK(array_benchmark)->RangeMultiplier(2)->Range(8, 8<<10)->Unit(benchmark::kMicrosecond);
