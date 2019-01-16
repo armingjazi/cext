@@ -1,12 +1,11 @@
 #include <include/gmock/gmock.h>
 #include <include/gtest/gtest.h>
 
-#include "../core/include/Library.h"
+#include <core/include/Library.h>
 
 using namespace testing;
-using namespace ALL;
 
-namespace ALLTesting
+namespace all
 {
     TEST(UnitTest_Library, get_set_equal)
     {

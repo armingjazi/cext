@@ -1,7 +1,7 @@
 
 #include "Library.h"
 
-namespace ALL
+namespace all
 {
     void Library::set(int variable) noexcept
     {

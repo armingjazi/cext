@@ -3,7 +3,7 @@
 #include <functional>
 #include <memory>
 
-namespace ALL
+namespace all
 {
     template<typename ...Arg>
     struct IEvent

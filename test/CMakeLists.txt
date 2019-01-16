@@ -2,10 +2,12 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
 
-add_executable(runALLTests LibraryTestCase.cpp EventTestCase.cpp)
+include_directories(../)
 
-target_link_libraries(runALLTests gtest gmock gtest_main)
-target_link_libraries(runALLTests ALLCore)
+add_executable(run_all_tests LibraryTestCase.cpp EventTestCase.cpp AlignedArrayTestCase.cpp AlignedCArrayTestCase.cpp)
+
+target_link_libraries(run_all_tests gtest gmock gtest_main)
+target_link_libraries(run_all_tests all_core)
 #target_link_libraries(runAllTests Eigen3::Eigen)
 
 

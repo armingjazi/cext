@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ALL
+namespace all
 {
     struct ILibrary
     {

@@ -1,0 +1,6 @@
+include_directories(../)
+
+add_executable(run_all_benchmarks AlignedArrayBenchmark.cpp main.cpp)
+
+target_link_libraries(run_all_benchmarks benchmark)
+target_link_libraries(run_all_benchmarks all_core)

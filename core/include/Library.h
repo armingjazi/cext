@@ -2,7 +2,7 @@
 
 #include "ILibrary.h"
 
-namespace ALL
+namespace all
 {
     /*
      * NOTE: not for use, this is only to ensure code style

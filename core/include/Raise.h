@@ -1,8 +1,8 @@
 #pragma once
 
-#include <IEvent.h>
+#include "IEvent.h"
 
-namespace ALL
+namespace all
 {
     template<typename ...Arg>
     class Event;

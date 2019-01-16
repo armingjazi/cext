@@ -1,12 +1,12 @@
 #include <include/gmock/gmock.h>
 #include <include/gtest/gtest.h>
 
-#include "../core/include/Event.h"
+#include "core/include/Event.h"
 
 using namespace testing;
-using namespace ALL;
+using namespace all;
 
-namespace ALLTesting
+namespace all
 {
     namespace
     {

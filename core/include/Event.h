@@ -3,10 +3,10 @@
 #include <functional>
 #include <set>
 
-#include <IEvent.h>
-#include <Raise.h>
+#include "IEvent.h"
+#include "Raise.h"
 
-namespace ALL
+namespace all
 {
     template<typename ...Arg>
     class Event : public IEvent<Arg...>
