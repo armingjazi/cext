@@ -18,13 +18,13 @@ CPU Caches:
   * L2 Unified 262K (x2)
   * L3 Unified 3145K (x1)
 Load Average: 2.61, 2.80, 2.80
-|Benchmark | Time | CPU | Iterations|
-|aligned_array_benchmark/8 | 0.021 us | 0.020 us | 31151123|
-|aligned_array_benchmark/256 | 10.4 us | 10.3 us | 68327|
-|aligned_array_benchmark/8192 |     28792 us   |     28743 us  |         25|
-|aligned_c_array_benchmark/8 |     0.019 us   |     0.019 us  |   37516615|
-|aligned_c_array_benchmark/256 |      10.1 us   |      10.1 us  |      70820|
-|aligned_c_array_benchmark/8192 |     31104 us   |     31005 us  |         25|
-|array_benchmark/8              |     0.019 us   |     0.019 us  |   37582682|
-|array_benchmark/256            |      12.0 us   |      11.8 us  |      71342|
-|array_benchmark/8192           |     35231 us   |     35189 us  |         15|
+| Benchmark | Time | CPU | Iterations |
+| aligned_array_benchmark/8 | 0.021 us | 0.020 us | 31151123 |
+| aligned_array_benchmark/256 | 10.4 us | 10.3 us | 68327 |
+| aligned_array_benchmark/8192 |     28792 us   |     28743 us  |         25 |
+| aligned_c_array_benchmark/8 |     0.019 us   |     0.019 us  |   37516615 |
+| aligned_c_array_benchmark/256 |      10.1 us   |      10.1 us  |      70820 |
+| aligned_c_array_benchmark/8192 |     31104 us   |     31005 us  |         25 |
+| array_benchmark/8              |     0.019 us   |     0.019 us  |   37582682 |
+| array_benchmark/256            |      12.0 us   |      11.8 us  |      71342 |
+| array_benchmark/8192           |     35231 us   |     35189 us  |         15 |
