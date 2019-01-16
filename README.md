@@ -18,9 +18,7 @@ CPU Caches:
   * L2 Unified 262K (x2)
   * L3 Unified 3145K (x1)
 Load Average: 2.61, 2.80, 2.80
-------------------------------|---------------------|----------|------------
 Benchmark                     |          Time       |      CPU |  Iterations
-------------------------------|---------------------|----------|------------
 aligned_array_benchmark/8      |     0.021 us   |     0.020 us  |   31151123
 aligned_array_benchmark/16     |     0.057 us   |    0.056 us   |  12282210
 aligned_array_benchmark/32     |     0.172 us   |     0.170 us  |    3741275
