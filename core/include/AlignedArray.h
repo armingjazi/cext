@@ -17,6 +17,11 @@ namespace all
                 pointers_[i] = &data_[i * dim2];
         }
 
+        AlignedArray(const AlignedArray&) = delete;
+        AlignedArray& operator=(const AlignedArray&) = delete;
+        AlignedArray(AlignedArray&& other) = delete;
+        AlignedArray& operator=(AlignedArray& other) = delete;
+
         const T* operator[] (size_t index) const
         {
             return pointers_[index];

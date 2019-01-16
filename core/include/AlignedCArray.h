@@ -25,6 +25,16 @@ namespace all
                     array_[i][j] = 0.0f;
         }
 
+        ~AlignedCArray()
+        {
+            std::free(data_);
+        }
+
+        AlignedCArray(const AlignedCArray&) = delete;
+        AlignedCArray& operator=(const AlignedCArray&) = delete;
+        AlignedCArray(AlignedCArray&& other) = delete;
+        AlignedCArray& operator=(AlignedCArray& other) = delete;
+
         const T* operator[] (size_t index) const
         {
             return array_[index];
