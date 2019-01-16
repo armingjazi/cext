@@ -12,12 +12,16 @@ three different implementations of dynamic arrays are presented:
 
 ### Results of the benchmark
 Run on (4 X 2900 MHz CPU s)
+
 CPU Caches:
   * L1 Data 32K (x2)
   * L1 Instruction 32K (x2)
   * L2 Unified 262K (x2)
   * L3 Unified 3145K (x1)
+  
 Load Average: 2.61, 2.80, 2.80
+
+
 | Benchmark | Time | CPU | Iterations |
 | aligned_array_benchmark/8 | 0.021 us | 0.020 us | 31151123 |
 | aligned_array_benchmark/256 | 10.4 us | 10.3 us | 68327 |
