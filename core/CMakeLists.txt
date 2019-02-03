@@ -1,5 +1,4 @@
-add_library(all_core source/Library.cpp include/Library.h
-        interface/ILibrary.h include/Event.h interface/IEvent.h include/Raise.h include/AlignedArray.h include/AlignedCArray.h)
+add_library(all_core source/Library.cpp)
 
 target_include_directories(all_core
         PUBLIC

@@ -1,7 +1,7 @@
 #include <include/gmock/gmock.h>
 #include <include/gtest/gtest.h>
 
-#include "core/include/Event.h"
+#include <Event.h>
 
 using namespace testing;
 using namespace all;

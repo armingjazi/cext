@@ -1,7 +1,7 @@
 #include <include/gmock/gmock.h>
 #include <include/gtest/gtest.h>
 
-#include <core/include/AlignedArray.h>
+#include <AlignedArray.h>
 
 using namespace testing;
 

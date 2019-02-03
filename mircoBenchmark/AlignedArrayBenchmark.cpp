@@ -1,7 +1,7 @@
 #include <benchmark/benchmark.h>
 
-#include <core/include/AlignedArray.h>
-#include <core/include/AlignedCArray.h>
+#include <AlignedArray.h>
+#include <AlignedCArray.h>
 
 using namespace all;
 
