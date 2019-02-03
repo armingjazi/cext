@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "Don't build benchmark tests." FORCE)
 
-include_directories(eigen-git-mirror/Eigen)
+find_package(Eigen3 REQUIRED)
 
 add_subdirectory(googletest)
 
