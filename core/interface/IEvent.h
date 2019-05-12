@@ -3,15 +3,13 @@
 #include <functional>
 #include <memory>
 
-namespace all
-{
-    template<typename ...Arg>
-    struct IEvent
-    {
-        using callback = const std::function<void(Arg...)>;
+namespace all {
+template<typename ...Arg>
+struct IEvent {
+  using callback = const std::function<void(Arg...)>;
 
-        using callbackPtr = const std::shared_ptr<callback>&;
+  using callbackPtr = const std::shared_ptr<callback> &;
 
-        virtual void operator+=(callbackPtr func) = 0;
-    };
+  virtual void operator+=(callbackPtr func) = 0;
+};
 }

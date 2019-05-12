@@ -1,4 +1,4 @@
-add_executable(run_all_tests LibraryTestCase.cpp EventTestCase.cpp AlignedArrayTestCase.cpp AlignedCArrayTestCase.cpp)
+add_executable(run_all_tests LibraryTestCase.cpp EventTestCase.cpp AlignedArrayTestCase.cpp AlignedCArrayTestCase.cpp StackTestCase.cpp)
 
 target_link_libraries(run_all_tests gtest gmock gtest_main)
 target_link_libraries(run_all_tests all_core)

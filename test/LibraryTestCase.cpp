@@ -5,23 +5,31 @@
 
 using namespace testing;
 
-namespace all
-{
-    TEST(UnitTest_Library, get_set_equal)
-    {
-        Library library;
+namespace all {
+class UnitTest_Library : public testing::Test {
+ public:
+  void SetUp() override {
 
-        library.set(10);
+  }
 
-        EXPECT_EQ(10, library.get());
-    }
+  void TearDown() override {
 
-    TEST(UnitTest_Library, get_set_not_equal)
-    {
-        Library library;
+  }
+};
 
-        library.set(11);
+TEST_F(UnitTest_Library, get_set_equal) {
+  Library library;
 
-        EXPECT_NE(10, library.get());
-    }
+  library.set(10);
+
+  EXPECT_EQ(10, library.get());
+}
+
+TEST_F(UnitTest_Library, get_set_not_equal) {
+  Library library;
+
+  library.set(11);
+
+  EXPECT_NE(10, library.get());
+}
 }
