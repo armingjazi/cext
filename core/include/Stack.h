@@ -26,14 +26,32 @@ class Stack {
     delete[] data_;
   };
   void push(const T &d) {
-    if (used_ == size_) throw std::runtime_error("size overflow");
+    if (used_ == size_) {
+      T* new_data = new_copy(data_, size_, size_ * 2);
+      delete[] data_;
+      data_ = new_data;
+      size_ = size_ * 2;
+    }
     data_[used_] = d;
     ++used_;
   }
 
-  T pop() {
+  T top() {
+    if (used_ == 0)
+      throw std::runtime_error("empty stack");
+
+    return data_[used_ - 1];
+  }
+
+  void pop() {
+    if (used_ == 0)
+      throw std::runtime_error("empty stack");
+
     --used_;
-    return data_[used_];
+  }
+
+  size_t count() {
+    return used_;
   }
 
  private:
@@ -42,7 +60,7 @@ class Stack {
   size_t used_;
 
   T *new_copy(const T *src, size_t srcSize, size_t destSize) {
-    T *dest = new T[srcSize];
+    T *dest = new T[destSize];
     for (int i = 0; i < srcSize; ++i)
       dest[i] = src[i];
     return dest;
