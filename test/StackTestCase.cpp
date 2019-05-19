@@ -36,6 +36,7 @@ TEST_F(UnitTest_Stack, pushes_multiple_floats_top_multiple_elements) {
   stack.push(34.5f);
   stack.push(333.1f);
   EXPECT_EQ(333.1f, stack.top());
+  stack.pop();
   EXPECT_EQ(34.5f, stack.top());
 }
 

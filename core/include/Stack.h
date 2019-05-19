@@ -36,7 +36,7 @@ class Stack {
     ++used_;
   }
 
-  T top() {
+  const T& top() const {
     if (used_ == 0)
       throw std::runtime_error("empty stack");
 
