@@ -15,7 +15,7 @@ class Stack {
   Stack &operator=(const Stack &stack) {
     if (&stack == this)
       return *this;
-    T* new_data = new_copy(stack.data_, stack.size_, stack.size_);
+    T *new_data = new_copy(stack.data_, stack.size_, stack.size_);
     delete[] data_;
     data_ = new_data;
     size_ = stack.size_;
@@ -27,7 +27,7 @@ class Stack {
   };
   void push(const T &d) {
     if (used_ == size_) {
-      T* new_data = new_copy(data_, size_, size_ * 2);
+      T *new_data = new_copy(data_, size_, size_ * 2);
       delete[] data_;
       data_ = new_data;
       size_ = size_ * 2;
@@ -36,7 +36,7 @@ class Stack {
     ++used_;
   }
 
-  const T& top() const {
+  const T &top() const {
     if (used_ == 0)
       throw std::runtime_error("empty stack");
 
