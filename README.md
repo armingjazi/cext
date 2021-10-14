@@ -1,4 +1,4 @@
-# Adaptive Learning Library
+# C++ experiments
 *a playground to implement impossible stuff in C++, maybe somewhere along the way I go back to the original idea.*
 The repository binds in google benchmark and gtest for better testing and benchmarking
 
