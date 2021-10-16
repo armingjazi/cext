@@ -6,8 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "Don't build benchmark tests." FORCE)
 
-find_package(Eigen3 REQUIRED)
-
 add_subdirectory(googletest)
 
 add_subdirectory(benchmark)
